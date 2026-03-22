@@ -1,7 +1,0 @@
-include: package:flutter_lints/flutter.yaml
-
-linter:
-  rules:
-    - avoid_print
-    - unnecessary_this
-    - use_key_in_widget_constructors
