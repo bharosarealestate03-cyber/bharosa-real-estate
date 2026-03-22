@@ -16,7 +16,6 @@ class PropertyListScreen extends StatefulWidget {
 
 class _PropertyListScreenState extends State<PropertyListScreen> {
   final _searchController = TextEditingController();
-  bool _showFilters = false;
 
   @override
   void dispose() {
@@ -267,7 +266,7 @@ class _PropertyListScreenState extends State<PropertyListScreen> {
                 pinned: true,
                 flexibleSpace: FlexibleSpaceBar(
                   background: Container(
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,

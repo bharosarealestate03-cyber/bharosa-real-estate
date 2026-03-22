@@ -303,7 +303,7 @@ class PropertyProvider extends ChangeNotifier {
         final reviews = List<Review>.from(property.reviews)..add(review);
         final newCount = reviews.length;
         final newAverage =
-            reviews.fold(0.0, (sum, r) => sum + r.rating) / newCount;
+            reviews.fold(0.0, (acc, r) => acc + r.rating) / newCount;
 
         transaction.update(propertyRef, {
           'reviews': reviews.map((r) => r.toMap()).toList(),

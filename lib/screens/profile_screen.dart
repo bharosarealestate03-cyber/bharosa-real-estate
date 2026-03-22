@@ -76,7 +76,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       maxHeight: 512,
     );
 
-    if (image != null && mounted) {
+    if (image != null) {
+      if (!mounted) return;
       // In production, upload to Firebase Storage and get URL
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
@@ -108,7 +109,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       ),
     );
 
-    if (confirmed == true && mounted) {
+    if (!mounted) return;
+    if (confirmed == true) {
       await context.read<AuthProvider>().signOut();
       if (mounted) {
         Navigator.of(context).pushAndRemoveUntil(
@@ -158,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 // Profile Header
                 Container(
                   width: double.infinity,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,

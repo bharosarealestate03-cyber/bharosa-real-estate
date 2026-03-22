@@ -21,7 +21,6 @@ class PropertyDetailScreen extends StatefulWidget {
 
 class _PropertyDetailScreenState extends State<PropertyDetailScreen> {
   final _pageController = PageController();
-  int _currentPage = 0;
   bool _showFullDescription = false;
   double _userRating = 0;
   final _reviewController = TextEditingController();
@@ -189,7 +188,7 @@ class _PropertyDetailScreenState extends State<PropertyDetailScreen> {
         PageView.builder(
           controller: _pageController,
           itemCount: images.length,
-          onPageChanged: (index) => setState(() => _currentPage = index),
+          onPageChanged: (index) => setState(() {}),
           itemBuilder: (context, index) {
             return CachedNetworkImage(
               imageUrl: images[index],
