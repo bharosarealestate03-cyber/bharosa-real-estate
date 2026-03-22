@@ -160,7 +160,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 // Profile Header
                 Container(
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,

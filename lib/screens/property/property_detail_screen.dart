@@ -188,7 +188,7 @@ class _PropertyDetailScreenState extends State<PropertyDetailScreen> {
         PageView.builder(
           controller: _pageController,
           itemCount: images.length,
-          onPageChanged: (index) => setState(() {}),
+          onPageChanged: (_) => setState(() {}),
           itemBuilder: (context, index) {
             return CachedNetworkImage(
               imageUrl: images[index],
