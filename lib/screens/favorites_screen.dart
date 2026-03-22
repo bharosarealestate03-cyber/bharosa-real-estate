@@ -136,21 +136,20 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
       onDismissed: (direction) async {
         await authProvider.toggleFavorite(property.id);
         setState(() => _favoriteProperties!.remove(property));
-        if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: const Text('Removed from favorites'),
-              action: SnackBarAction(
-                label: 'Undo',
-                onPressed: () async {
-                  await authProvider.toggleFavorite(property.id);
-                  _loadFavorites();
-                },
-              ),
-              behavior: SnackBarBehavior.floating,
+        if (!mounted) return;
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: const Text('Removed from favorites'),
+            action: SnackBarAction(
+              label: 'Undo',
+              onPressed: () async {
+                await authProvider.toggleFavorite(property.id);
+                _loadFavorites();
+              },
             ),
-          );
-        }
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
       },
       child: GestureDetector(
         onTap: () {
